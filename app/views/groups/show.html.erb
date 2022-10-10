@@ -9,13 +9,30 @@
     <div class='col-md-8 offset-md-1'>
       <h2>Group Detail</h2>
       <table class='table table-hover table-inverse'>
+        <thead>
+          <tr>
+            <th></th>
+            <th>グループ名</th>
+            <th>紹介文</th>
+            <th>メンバー</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+        <tbody>
         <tr>
           <td><%= image_tag @group.get_image, size:'50x50' %></td>
           <td><%= @group.name %></td>
           <td><%= @group.introduction %></td>
           <td>
+            <% @group.users.each do |member| %>
+              <%= member.name %>
+            <% end %>
+          </td>
+          <td>
             <% if @group.owner_id == current_user.id %>
               <%= link_to 'Edit', edit_group_path(@group), class: "btn btn-sm btn-success" %>
+            <% els %>
+              <%= link_to 'Join this group', class: "btn btn-sm btn-success" %>
             <% end %>
           </td>
         </tr>
