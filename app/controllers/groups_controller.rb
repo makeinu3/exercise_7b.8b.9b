@@ -16,6 +16,9 @@ class GroupsController < ApplicationController
     @group = Group.new
   end
 
+  def join
+  end
+
   def create
     @group = Group.new(group_params)
     @group.owner_id = current_user.id
