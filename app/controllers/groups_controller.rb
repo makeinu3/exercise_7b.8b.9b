@@ -45,8 +45,9 @@ class GroupsController < ApplicationController
   end
 
   def ensure_correct_user
+    @group = Group.find(params[:id])
     unless @group.owner_id == current_user.id
-      redirect_to group_index_path
+      redirect_to groups_path
     end
   end
 
