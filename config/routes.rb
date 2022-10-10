@@ -18,5 +18,5 @@ Rails.application.routes.draw do
 
   resources :chats, only: [:show, :create]
 
-  resources :group, except: [:destroy]
+  resources :groups, except: [:destroy]
 end
